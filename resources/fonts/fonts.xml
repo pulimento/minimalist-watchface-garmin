@@ -1,0 +1,7 @@
+<resources>
+  <fonts>
+    <font id="id_font_brothers128" filename="brothers128.fnt" antialias="true" filter="0123456789"/>
+    <font id="id_font_righteous152" filename="righteous152.fnt" antialias="true" filter="0123456789"/>
+    <font id="id_font_fjalla" filename="fjalla.fnt" antialias="true" filter="0123456789"/>
+  </fonts>  
+</resources>
