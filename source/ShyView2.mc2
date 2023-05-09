@@ -2,7 +2,7 @@ import Toybox.Graphics;
 import Toybox.WatchUi;
 import Toybox.Time.Gregorian;
 
-class ShyView extends WatchUi.WatchFace {
+class ShyView2 extends WatchUi.WatchFace {
 
     private var _timeFont as FontResource?;
     private var _dateFont as FontResource?;
@@ -13,8 +13,12 @@ class ShyView extends WatchUi.WatchFace {
     private var _dateAlreadyCalculated;
     private var _stringHours;
     private var _stringMinutes;
+    private var _stringTime;
     private var _stringDateTop;
     private var _stringDateBottom;
+    hidden var _tvTime;
+    hidden var _tvDateTop;
+    hidden var _tvDateBottom;
 
     function initialize() {
         WatchFace.initialize();
@@ -23,6 +27,10 @@ class ShyView extends WatchUi.WatchFace {
         // Load resources
         _timeFont = WatchUi.loadResource($.Rez.Fonts.id_font_fjalla_large) as FontResource;
         _dateFont = WatchUi.loadResource($.Rez.Fonts.id_font_fjalla_small) as FontResource;
+    }
+
+    function onSettingsChanged() {
+        // No settings
     }
 
     function onLayout(dc) {
@@ -34,13 +42,41 @@ class ShyView extends WatchUi.WatchFace {
         _centerX = _width / 2;
         _centerY = _height / 2;
     }
+ /*
+    function onShow() {
+        _tvTime = new WatchUi.Text({
+            :text=>_stringTime,
+            :color=>Graphics.COLOR_WHITE,
+            :font=>_timeFont,
+            :locX =>WatchUi.LAYOUT_HALIGN_CENTER,
+            :locY=>WatchUi.LAYOUT_VALIGN_CENTER
+        });
+        _tvDateTop = new WatchUi.Text({
+            :text=>_stringDateTop,
+            :color=>Graphics.COLOR_WHITE,
+            :font=>_dateFont,
+            :locX =>WatchUi.LAYOUT_HALIGN_CENTER,
+            :locY=>40
+        });
+        _tvDateBottom = new WatchUi.Text({
+            :text=>_stringDateBottom,
+            :color=>Graphics.COLOR_WHITE,
+            :font=>_dateFont,
+            :locX =>WatchUi.LAYOUT_HALIGN_CENTER,
+            :locY=>_height - 40
+        });
+    }
+    */
+
 
     // Update the view
     public function onUpdate(dc as Dc) as Void {
+        // Call the parent onUpdate function to redraw the layout
+        //View.onUpdate(dc);
+
         // Same color for all
         dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_BLACK);
-
-        //dc.clear();
+        dc.clear();
 
         // Draw the UI
         var clockTime = System.getClockTime();
@@ -51,7 +87,11 @@ class ShyView extends WatchUi.WatchFace {
     }
 
     private function drawHoursMinutes(dc) {
+        //_tvTime.setText(_stringTime);
+        //_tvTime.draw(dc);
+
         // Draw hours
+        //dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_TRANSPARENT);
         dc.drawText(
             _centerX - 4,
             _centerY - 12,
@@ -67,10 +107,18 @@ class ShyView extends WatchUi.WatchFace {
             _timeFont,
             _stringMinutes,
             Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER
-        );        
+        );
+        
     }
 
     private function drawDate(dc) {
+        //dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
+
+        //_tvDateTop.setText(_stringDateTop);
+        //_tvDateBottom.setText(_stringDateBottom);
+        //_tvDateTop.draw(dc);
+        //_tvDateBottom.draw(dc);
+
         // Top part of the date
         dc.drawText(
             _centerX,
@@ -80,7 +128,6 @@ class ShyView extends WatchUi.WatchFace {
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER
         );
 
-        // Bottom part
         dc.drawText(
             _centerX,
             _height - 32,
@@ -99,6 +146,7 @@ class ShyView extends WatchUi.WatchFace {
         }
         _stringHours = hours;
         _stringMinutes = minutes;
+        _stringTime = hours + "" + minutes;
     }
 
     private function calculateDate(clockTime) {
