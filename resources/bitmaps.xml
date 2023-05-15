@@ -1,3 +1,23 @@
 <resources>
-    <bitmap id="LauncherIcon" filename="drawables/launcher_icon.png" />    
+    <bitmap id="LauncherIcon" filename="drawables/launcher_icon.png" /> 
+    <bitmap id="bh1" filename="drawables/hours/1.png" />
+    <bitmap id="bh2" filename="drawables/hours/2.png" />
+    <bitmap id="bh3" filename="drawables/hours/3.png" />
+    <bitmap id="bh4" filename="drawables/hours/4.png" />
+    <bitmap id="bh5" filename="drawables/hours/5.png" />
+    <bitmap id="bh6" filename="drawables/hours/6.png" />
+    <bitmap id="bh7" filename="drawables/hours/7.png" />
+    <bitmap id="bh8" filename="drawables/hours/8.png" />
+    <bitmap id="bh9" filename="drawables/hours/9.png" />
+    <bitmap id="bh0" filename="drawables/hours/0.png" />
+    <bitmap id="bm1" filename="drawables/minutes/1.png" />
+    <bitmap id="bm2" filename="drawables/minutes/2.png" />
+    <bitmap id="bm3" filename="drawables/minutes/3.png" />
+    <bitmap id="bm4" filename="drawables/minutes/4.png" />
+    <bitmap id="bm5" filename="drawables/minutes/5.png" />
+    <bitmap id="bm6" filename="drawables/minutes/6.png" />
+    <bitmap id="bm7" filename="drawables/minutes/7.png" />
+    <bitmap id="bm8" filename="drawables/minutes/8.png" />
+    <bitmap id="bm9" filename="drawables/minutes/9.png" />
+    <bitmap id="bm0" filename="drawables/minutes/0.png" />      
 </resources>
