@@ -1,6 +1,7 @@
 <resources>
   <fonts>
-    <font id="id_font_fjalla_large" filename="fjalla_large.fnt" antialias="true" filter="0123456789"/>
+    <!-- REMEMBER, YOU CAN USE A FILTER HERE -->
+    <font id="id_font_fjalla_large" filename="fjalla_large.fnt" antialias="true" />
     <font id="id_font_fjalla_small" filename="fjalla_small.fnt" antialias="true" />
   </fonts>  
 </resources>
